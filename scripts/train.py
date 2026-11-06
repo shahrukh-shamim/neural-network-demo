@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import json
 import math
 import os
@@ -7,7 +9,7 @@ import time
 # -------------------------------------------------------------------
 # 1. LOAD WEIGHTS FROM FILE (OR INITIALIZE IF FILE DOESN'T EXIST)
 # -------------------------------------------------------------------
-FILE_PATH = "weights.json" # Path to the JSON file storing the neural network weights
+FILE_PATH = Path(__file__).resolve().parents[1] / "data" / "weights.json" # Path to the JSON file storing the neural network weights
 
 # Function to validate the structure and values of the weights dictionary
 def validate_weights(weights):
@@ -135,3 +137,4 @@ while iteration <= max_iterations:
         )
 
     iteration += 1
+

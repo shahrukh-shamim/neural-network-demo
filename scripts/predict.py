@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import json
 import math
 import os
@@ -5,8 +7,8 @@ import os
 # -------------------------------------------------------------------
 # 1. LOAD MOVIE DETAILS AND EXISTING WEIGHTS FROM FILES
 # -------------------------------------------------------------------
-FILE_PATH = "final-weights.json" # Path to the JSON file storing the neural network weights
-MOVIE_FILE_PATH = "favourite-movie.json" # Path to the favourite movie
+FILE_PATH = Path(__file__).resolve().parents[1] / "data" / "final-weights.json" # Path to the JSON file storing the neural network weights
+MOVIE_FILE_PATH = Path(__file__).resolve().parents[1] / "data" / "favourite-movie.json" # Path to the favourite movie
 
 
 def validate_movie(movie):
@@ -108,3 +110,4 @@ if abs(difference) <= 0.2:
     print(f"Prediction is you will like {movie_title} ")
 else:
     print(f"Prediction is you will not like {movie_title} ")
+
